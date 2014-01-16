@@ -11,13 +11,14 @@ namespace Equipment.Controllers
 {
     public class DevicesController : Controller
     {
-        private DeviceDBContext db = new DeviceDBContext();
+        private MyDbContext db = new MyDbContext();
 
         // GET: /Devices/
         public ActionResult Index(string Manufacturer,string SerialNumber)
         {
             var MList = new List<string>();
-
+            var devices = from m in db.Devices select m;
+            /*
             var Query = from d in db.Devices
                            orderby d.DeviceManufacturer
                            select d.DeviceManufacturer;
@@ -33,7 +34,7 @@ namespace Equipment.Controllers
             if(!String.IsNullOrEmpty(Manufacturer))
             {
                 devices = devices.Where(x => x.DeviceManufacturer.Equals(Manufacturer));
-            }
+            }*/
             return View(devices);
         }
 
@@ -65,6 +66,18 @@ namespace Equipment.Controllers
         // GET: /Devices/Create
         public ActionResult Create()
         {
+            var MList = new List<string>();
+            var Query = from d in db.Dictionaries
+                           orderby d.DeviceManufacturer
+                           select d.DeviceManufacturer;
+            MList.AddRange(Query.Distinct());
+            var NList = new List<string>();
+            Query = from d in db.Dictionaries
+                    orderby d.DeviceName
+                    select d.DeviceName;
+            NList.AddRange(Query.Distinct());
+            ViewBag.Manufacturers = new SelectList(MList);
+            ViewBag.Names = new SelectList(NList);
             return View();
         }
 

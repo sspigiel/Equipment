@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DeviceDictionaryController.cs" />
     <Compile Include="Controllers\DevicesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,8 +138,14 @@
     <Compile Include="Migrations\201401161111290_annotation-Update.Designer.cs">
       <DependentUpon>201401161111290_annotation-Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401161412110_data-base-update.cs" />
+    <Compile Include="Migrations\201401161412110_data-base-update.Designer.cs">
+      <DependentUpon>201401161412110_data-base-update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\DeviceDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +185,11 @@
     <Content Include="Views\Devices\Edit.cshtml" />
     <Content Include="Views\Devices\Index.cshtml" />
     <Content Include="Views\Devices\My.cshtml" />
+    <Content Include="Views\DeviceDictionary\Create.cshtml" />
+    <Content Include="Views\DeviceDictionary\Delete.cshtml" />
+    <Content Include="Views\DeviceDictionary\Details.cshtml" />
+    <Content Include="Views\DeviceDictionary\Edit.cshtml" />
+    <Content Include="Views\DeviceDictionary\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401160944196_InitialCreate.resx">
@@ -188,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401161111290_annotation-Update.resx">
       <DependentUpon>201401161111290_annotation-Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401161412110_data-base-update.resx">
+      <DependentUpon>201401161412110_data-base-update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
