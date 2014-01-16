@@ -1,0 +1,50 @@
+﻿@model Equipment.Models.Device
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Device</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceManufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceManufacturer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeviceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

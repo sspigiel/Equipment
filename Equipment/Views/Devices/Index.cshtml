@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Equipment.Models.Device>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Manufacturer: @Html.DropDownList("Manufacturer", "")
+        Serial number: @Html.TextBox("SerialNumber")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceManufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSerialNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceUser)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceManufacturer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSerialNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceUser)
+        </td>
+        <td>
+            @Html.ActionLink("Claim it", "Edit", new { id=item.DeviceId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DeviceId })
+        </td>
+    </tr>
+}
+
+</table>
