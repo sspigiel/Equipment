@@ -18,19 +18,12 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DeviceManufacturer, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DeviceManufacturer)
-                @Html.ValidationMessageFor(model => model.DeviceManufacturer)
-            </div>
+            @Html.DropDownList("Manufacturers");
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DeviceName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DeviceName)
-                @Html.ValidationMessageFor(model => model.DeviceName)
-            </div>
+            @Html.DropDownList("Names");
         </div>
 
         <div class="form-group">

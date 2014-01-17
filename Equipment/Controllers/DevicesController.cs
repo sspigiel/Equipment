@@ -86,7 +86,7 @@ namespace Equipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DeviceId,DeviceManufacturer,DeviceName,DeviceSerialNumber")] Device device)
+        public ActionResult Create([Bind(Include = "DeviceId,DeviceDictionaryId,Batch,DeviceSerialNumber")] Device device, [Bind(Include = "DeviceDictionaryId,DeviceManufacturer,DeviceName")] DeviceDictionary dictionary)
         {
             if (ModelState.IsValid)
             {

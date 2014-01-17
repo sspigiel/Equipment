@@ -142,6 +142,14 @@
     <Compile Include="Migrations\201401161412110_data-base-update.Designer.cs">
       <DependentUpon>201401161412110_data-base-update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401170808510_adding_batch_device.cs" />
+    <Compile Include="Migrations\201401170808510_adding_batch_device.Designer.cs">
+      <DependentUpon>201401170808510_adding_batch_device.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401170821379_adding_DeviceSerialNumber.cs" />
+    <Compile Include="Migrations\201401170821379_adding_DeviceSerialNumber.Designer.cs">
+      <DependentUpon>201401170821379_adding_DeviceSerialNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Device.cs" />
@@ -203,6 +211,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401161412110_data-base-update.resx">
       <DependentUpon>201401161412110_data-base-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401170808510_adding_batch_device.resx">
+      <DependentUpon>201401170808510_adding_batch_device.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401170821379_adding_DeviceSerialNumber.resx">
+      <DependentUpon>201401170821379_adding_DeviceSerialNumber.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
