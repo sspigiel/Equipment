@@ -120,6 +120,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLogic\TestClass.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\DeviceDictionaryController.cs" />
     <Compile Include="Controllers\DevicesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -150,6 +152,18 @@
     <Compile Include="Migrations\201401170821379_adding_DeviceSerialNumber.Designer.cs">
       <DependentUpon>201401170821379_adding_DeviceSerialNumber.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401171216274_DatabaseModification.cs" />
+    <Compile Include="Migrations\201401171216274_DatabaseModification.Designer.cs">
+      <DependentUpon>201401171216274_DatabaseModification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401171236066_DatabaseModification2.cs" />
+    <Compile Include="Migrations\201401171236066_DatabaseModification2.Designer.cs">
+      <DependentUpon>201401171236066_DatabaseModification2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401171239037_DatabaseModification3.cs" />
+    <Compile Include="Migrations\201401171239037_DatabaseModification3.Designer.cs">
+      <DependentUpon>201401171239037_DatabaseModification3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Device.cs" />
@@ -159,6 +173,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -166,8 +181,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CreateDevice.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -187,17 +204,22 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Devices\Create.cshtml" />
-    <Content Include="Views\Devices\Delete.cshtml" />
-    <Content Include="Views\Devices\Details.cshtml" />
-    <Content Include="Views\Devices\Edit.cshtml" />
-    <Content Include="Views\Devices\Index.cshtml" />
-    <Content Include="Views\Devices\My.cshtml" />
     <Content Include="Views\DeviceDictionary\Create.cshtml" />
     <Content Include="Views\DeviceDictionary\Delete.cshtml" />
     <Content Include="Views\DeviceDictionary\Details.cshtml" />
     <Content Include="Views\DeviceDictionary\Edit.cshtml" />
     <Content Include="Views\DeviceDictionary\Index.cshtml" />
+    <Content Include="Views\Default1\Create.cshtml" />
+    <Content Include="Views\Default1\Delete.cshtml" />
+    <Content Include="Views\Default1\Details.cshtml" />
+    <Content Include="Views\Default1\Edit.cshtml" />
+    <Content Include="Views\Default1\Index.cshtml" />
+    <Content Include="Views\Devices\Create.cshtml" />
+    <Content Include="Views\Devices\Delete.cshtml" />
+    <Content Include="Views\Devices\Details.cshtml" />
+    <Content Include="Views\Devices\Edit.cshtml" />
+    <Content Include="Views\Devices\Index.cshtml" />
+    <Content Include="Views\Devices\CreateMany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401160944196_InitialCreate.resx">
@@ -217,6 +239,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401170821379_adding_DeviceSerialNumber.resx">
       <DependentUpon>201401170821379_adding_DeviceSerialNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401171216274_DatabaseModification.resx">
+      <DependentUpon>201401171216274_DatabaseModification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401171236066_DatabaseModification2.resx">
+      <DependentUpon>201401171236066_DatabaseModification2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401171239037_DatabaseModification3.resx">
+      <DependentUpon>201401171239037_DatabaseModification3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

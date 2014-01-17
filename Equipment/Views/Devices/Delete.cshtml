@@ -13,11 +13,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DeviceName)
+            @Html.DisplayNameFor(model => model.DeviceDictionary.DeviceManufacturer)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DeviceName)
+            @Html.DisplayFor(model => model.DeviceDictionary.DeviceManufacturer)
         </dd>
 
         <dt>
@@ -34,6 +34,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.DeviceUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Batch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Batch)
         </dd>
 
     </dl>

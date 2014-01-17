@@ -9,18 +9,18 @@ using Equipment.Models;
 
 namespace Equipment.Controllers
 {
-    public class DevicesController : Controller
+    public class Default1Controller : Controller
     {
         private MyDbContext db = new MyDbContext();
-
-        // GET: /Devices/
+        
+        // GET: /Default1/
         public ActionResult Index()
         {
             var devices = db.Devices.Include(d => d.DeviceDictionary);
             return View(devices.ToList());
         }
 
-        // GET: /Devices/Details/5
+        // GET: /Default1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,21 +35,21 @@ namespace Equipment.Controllers
             return View(device);
         }
 
-        // GET: /Devices/Create
+        // GET: /Default1/Create
         public ActionResult Create()
         {
             var Ids = db.Dictionaries
-               .Select(s => new
-               {
-                   DeviceDictionaryId = s.DeviceDictionaryId,
-                   Description = s.DeviceManufacturer + " " + s.DeviceName
-               })
-               .ToList();
+                .Select(s => new
+                {
+                    DeviceDictionaryId = s.DeviceDictionaryId,
+                    Description = s.DeviceManufacturer+" "+s.DeviceName
+                })
+                .ToList();
             ViewBag.DeviceDictionaryId = new SelectList(Ids, "DeviceDictionaryId", "Description");
             return View();
         }
 
-        // POST: /Devices/Create
+        // POST: /Default1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +67,7 @@ namespace Equipment.Controllers
             return View(device);
         }
 
-        // GET: /Devices/Edit/5
+        // GET: /Default1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,19 +79,11 @@ namespace Equipment.Controllers
             {
                 return HttpNotFound();
             }
-            var Ids = db.Dictionaries
-               .Select(s => new
-               {
-                   DeviceDictionaryId = s.DeviceDictionaryId,
-                   Description = s.DeviceManufacturer + " " + s.DeviceName
-               })
-               .ToList();
-            ViewBag.DeviceDictionaryId = new SelectList(Ids, "DeviceDictionaryId", "Description",device.DeviceDictionaryId);
-            //ViewBag.DeviceDictionaryId = new SelectList(db.Dictionaries, "DeviceDictionaryId", "DeviceManufacturer", device.DeviceDictionaryId);
+            ViewBag.DeviceDictionaryId = new SelectList(db.Dictionaries, "DeviceDictionaryId", "DeviceManufacturer", device.DeviceDictionaryId);
             return View(device);
         }
 
-        // POST: /Devices/Edit/5
+        // POST: /Default1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -104,19 +96,11 @@ namespace Equipment.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var Ids = db.Dictionaries
-               .Select(s => new
-               {
-                   DeviceDictionaryId = s.DeviceDictionaryId,
-                   Description = s.DeviceManufacturer + " " + s.DeviceName
-               })
-               .ToList();
-            ViewBag.DeviceDictionaryId = new SelectList(Ids, "DeviceDictionaryId", "Description",device.DeviceDictionaryId);
-           // ViewBag.DeviceDictionaryId = new SelectList(db.Dictionaries, "DeviceDictionaryId", "DeviceManufacturer", device.DeviceDictionaryId);
+            ViewBag.DeviceDictionaryId = new SelectList(db.Dictionaries, "DeviceDictionaryId", "DeviceManufacturer", device.DeviceDictionaryId);
             return View(device);
         }
 
-        // GET: /Devices/Delete/5
+        // GET: /Default1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -131,7 +115,7 @@ namespace Equipment.Controllers
             return View(device);
         }
 
-        // POST: /Devices/Delete/5
+        // POST: /Default1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -139,16 +123,6 @@ namespace Equipment.Controllers
             Device device = db.Devices.Find(id);
             db.Devices.Remove(device);
             db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult CreateMany()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateMany(int i)
-        {
             return RedirectToAction("Index");
         }
 

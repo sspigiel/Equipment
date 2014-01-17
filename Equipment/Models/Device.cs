@@ -11,10 +11,11 @@ namespace Equipment.Models
     public class Device
     {
         public int DeviceId { get;set; }
-        public string DeviceSerialNumber { get; set; }
         [Required]
+        public string DeviceSerialNumber { get; set; }       
         [StringLength(14)]
         public string DeviceUser { get; set; }
+        [Required]
         public int DeviceDictionaryId { get; set; }
         [ForeignKey("DeviceDictionaryId")]
         public virtual DeviceDictionary DeviceDictionary {get;set;}
