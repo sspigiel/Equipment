@@ -1,21 +1,14 @@
 ﻿$(document).ready(function () {
-   /* $.ajax({
-        type: "POST",
-        url: "/BusinessLogic/TestClass.cs/foo",
-        
-    })
-  .done(function (msg) {
-      alert("Data Saved: " + msg);
-  }); */
     $(function () {
-        $("#datepicker").datepicker();
+        $("#StartDatePicker").datepicker();
     });
-    $("#UserClick").click(function () {
-        var id = $('#UserName').val();
-        foo(id);
+    $(function () {
+        $("#EndDatePicker").datepicker();
     });
-    function foo(value) {
-        $("#DeviceUser").val(value);
-    };
+    $(function() {
+        $("#UserClick").on("click", function () {
+            $("#DeviceUser").val($("#UserName").val());
+        })
+    });
 })
 

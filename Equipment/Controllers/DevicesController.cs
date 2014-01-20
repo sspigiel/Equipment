@@ -54,7 +54,7 @@ namespace Equipment.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="DeviceId,DeviceSerialNumber,DeviceUser,DeviceDictionaryId,Batch")] Device device)
+        public ActionResult Create([Bind(Include="DeviceId,DeviceSerialNumber,DeviceUser,DeviceDictionaryId,Batch,Start,End")] Device device)
         {
             if (ModelState.IsValid)
             {
@@ -142,8 +142,22 @@ namespace Equipment.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult MyDevices()
+        {
+            var devices = db.Devices.Include(d => d.DeviceDictionary).Where(d=>d.DeviceUser.Equals(HttpContext.User.Identity.Name));
+            return View(devices);
+        }
+
         public ActionResult CreateMany()
         {
+            var Ids = db.Dictionaries
+               .Select(s => new
+               {
+                   DeviceDictionaryId = s.DeviceDictionaryId,
+                   Description = s.DeviceManufacturer + " " + s.DeviceName
+               })
+               .ToList();
+            ViewBag.DeviceDictionaryId = new SelectList(Ids, "DeviceDictionaryId", "Description");
             return View();
         }
         [HttpPost]

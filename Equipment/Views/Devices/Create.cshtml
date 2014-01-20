@@ -52,11 +52,12 @@
         </div>
         <div class="form-group">
             @Html.Label("Data początkowa")
-            @Html.TextBox("Start", "", new { id = "datepicker" })
+            @Html.TextBoxFor(model => model.Start, new { @id="StartDatePicker"})
+            
         </div>
         <div class="form-group">
             @Html.Label("Data początkowa")
-            @Html.TextBox("Start", "", new { id = "datepicker" })
+            @Html.TextBoxFor(model => model.End, new { @id = "EndDatePicker" })
         </div>
         
         
